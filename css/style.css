@@ -40,7 +40,15 @@
     transform: scale(1.2);
 }
 
+.seat-occupied {
+    opacity: 0.9;
+    cursor: not-allowed;
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+    
+}
+
 /* Pokud je sedadlo vybrané, přidáme mu záři (tohle se aplikuje spolu s Tailwind třídami) */
 .seat-selected {
-    box-shadow: 0 0 10px #6febf6;
+    opacity: 1;
+    text-shadow: 0 0 5px rgba(111,235,246,0.5);
 }
