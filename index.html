@@ -65,13 +65,21 @@
                     <label class="block text-[#91c5ca] text-xs font-bold uppercase tracking-wider mb-2">Vyberte film</label>
                     <div class="relative">
                         <select id="movie" class="appearance-none flex w-full cursor-pointer overflow-hidden rounded-xl text-white focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#234548] bg-surface-dark hover:bg-[#234548] transition-colors h-12 px-4 pr-10 text-base font-medium leading-normal">
-                            <option value="250">Avengers: Endgame (250 Kč)</option>
-                            <option value="200">Joker (200 Kč)</option>
-                            <option value="180">Toy Story 4 (180 Kč)</option>
-                        </select>
+                        </select> 
                         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-primary">
                             <span class="material-symbols-outlined">expand_more</span>
                         </div>
+                    </div>
+                </div>
+
+                <div id="admin-movie-form" class="hidden w-full bg-[#1d2e30] p-4 rounded-xl border border-[#234548] mt-4 flex flex-col gap-4">
+                    <h3 class="text-white font-bold border-b border-[#234548] pb-2">Admin: Správa filmů</h3>
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <input type="text" id="new-movie-name" placeholder="Název filmu" class="bg-[#102122] text-white p-2 rounded border border-[#234548] flex-1">
+                        <input type="number" id="new-movie-price" placeholder="Cena (Kč)" class="bg-[#102122] text-white p-2 rounded border border-[#234548] w-24">
+                        <input type="number" id="new-movie-seats" placeholder="Sedadla (např. 48)" class="bg-[#102122] text-white p-2 rounded border border-[#234548] w-32">
+                        <button id="add-movie-btn" class="bg-primary text-black font-bold px-4 py-2 rounded hover:bg-[#5cdce6]">Přidat</button>
+                        <button id="delete-movie-btn" class="bg-red-500 text-white font-bold px-4 py-2 rounded hover:bg-red-600">Smazat aktuální</button>
                     </div>
                 </div>
 
