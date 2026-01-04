@@ -59,7 +59,7 @@
     <main class="flex-1 flex flex-col items-center justify-start w-full px-4 py-8 lg:px-0">
         <div class="w-full max-w-[960px] flex flex-col gap-8">
             
-            <div class="flex flex-col md:flex-row items-end md:items-center justify-between gap-6 px-4">
+            <div class="flex flex-col md:flex-col items-end md:items-center justify-between gap-6 px-4">
                 
                 <div class="w-full md:w-auto min-w-[300px]">
                     <label class="block text-[#91c5ca] text-xs font-bold uppercase tracking-wider mb-2">Vyberte film</label>
@@ -72,14 +72,56 @@
                     </div>
                 </div>
 
-                <div id="admin-movie-form" class="hidden w-full bg-[#1d2e30] p-4 rounded-xl border border-[#234548] mt-4 flex flex-col gap-4">
-                    <h3 class="text-white font-bold border-b border-[#234548] pb-2">Admin: Správa filmů</h3>
-                    <div class="flex flex-col md:flex-row gap-4">
-                        <input type="text" id="new-movie-name" placeholder="Název filmu" class="bg-[#102122] text-white p-2 rounded border border-[#234548] flex-1">
-                        <input type="number" id="new-movie-price" placeholder="Cena (Kč)" class="bg-[#102122] text-white p-2 rounded border border-[#234548] w-24">
-                        <input type="number" id="new-movie-seats" placeholder="Sedadla (např. 48)" class="bg-[#102122] text-white p-2 rounded border border-[#234548] w-32">
-                        <button id="add-movie-btn" class="bg-primary text-black font-bold px-4 py-2 rounded hover:bg-[#5cdce6]">Přidat</button>
-                        <button id="delete-movie-btn" class="bg-red-500 text-white font-bold px-4 py-2 rounded hover:bg-red-600">Smazat aktuální</button>
+                <div id="admin-panel" class="hidden w-full max-w-4xl bg-[#16292b] border border-[#234548] rounded-2xl shadow-2xl overflow-hidden mb-8 mt-6">
+                    <div class="bg-[#1d2e30] px-6 py-3 border-b border-[#234548] flex items-center justify-between">
+                        <h3 class="text-white font-bold text-sm tracking-widest uppercase flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-lg">admin_panel_settings</span>
+                            Administrace
+                        </h3>
+                        <span class="text-xs text-[#91c5ca]">Jste v režimu úprav</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[#234548]">
+                        <div class="p-6 flex flex-col gap-4">
+                            <h4 class="text-[#91c5ca] text-xs font-bold uppercase mb-2">Vytvořit nový film</h4>
+                            <div class="space-y-3">
+                                <div>
+                                    <label class="block text-xs text-gray-500 mb-1">Název filmu</label>
+                                    <input type="text" id="new-movie-name" placeholder="Např. Matrix" class="w-full bg-[#102122] text-white px-3 py-2 rounded-lg border border-[#234548] focus:border-primary focus:outline-none text-sm transition-colors">
+                                </div>
+
+                                <div class="flex gap-3">
+                                    <div class="w-1/2">
+                                        <label class="block text-xs text-gray-500 mb-1">Cena (Kč)</label>
+                                        <input type="number" id="new-movie-price" placeholder="200" class="w-full bg-[#102122] text-white px-3 py-2 rounded-lg border border-[#234548] focus:border-primary focus:outline-none text-sm">
+                                    </div>
+                                    <div class="w-1/2">
+                                        <label class="block text-xs text-gray-500 mb-1">Počet sedadel</label>
+                                        <input type="number" id="new-movie-seats" placeholder="48" class="w-full bg-[#102122] text-white px-3 py-2 rounded-lg border border-[#234548] focus:border-primary focus:outline-none text-sm">
+                                    </div>
+                                </div>
+                            </div>
+                            <button id="add-movie-btn" class="mt-2 w-full bg-primary hover:bg-[#5cdce6] text-background-dark font-bold py-2 rounded-lg transition-all flex items-center justify-center gap-2 text-sm shadow-glow">
+                                <span class="material-symbols-outlined text-lg">add_circle</span>
+                                    Přidat do nabídky
+                            </button>
+                        </div>
+                        <div class="p-6 flex flex-col gap-4 bg-[#1a2c2e]/50">
+                            <h4 class="text-[#91c5ca] text-xs font-bold uppercase mb-2">Akce pro vybraný film</h4>
+                            <p class="text-xs text-gray-400 mb-2">
+                                Úpravy se týkají právě zobrazeného filmu. Pozor, tyto akce jsou nevratné.
+                            </p>
+
+                            <button id="reset-btn" class="w-full bg-transparent border border-orange-500/50 text-orange-400 hover:bg-orange-500/10 font-medium py-2 rounded-lg transition-all flex items-center justify-center gap-2 text-sm group">
+                                <span class="material-symbols-outlined group-hover:rotate-180 transition-transform">restart_alt</span>
+                                Vyprázdnit sál (Reset)
+                            </button>
+
+                            <button id="delete-movie-btn" class="w-full bg-transparent border border-red-500/50 text-red-400 hover:bg-red-500/10 font-medium py-2 rounded-lg transition-all flex items-center justify-center gap-2 text-sm hover:text-red-300">
+                                <span class="material-symbols-outlined">delete</span>
+                                Smazat tento film
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -107,12 +149,6 @@
                 </div>
 
                 <div id="seat-map" class="grid grid-cols-8 gap-x-4 gap-y-6 md:gap-x-8 md:gap-y-6 mb-12">
-                    </div>
-                
-                <div id="admin-controls" class="hidden w-full flex justify-center mt-4">
-                     <button id="reset-btn" class="text-red-400 border border-red-400 px-4 py-2 rounded hover:bg-red-400 hover:text-black transition">
-                        ⚠️ Resetovat Sál (Admin)
-                     </button>
                 </div>
 
             </div>

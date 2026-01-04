@@ -7,7 +7,7 @@ export default class CinemaView {
         this.roleSelect = document.getElementById('role-select');
 
         // Admin elements
-        this.adminForm = document.getElementById('admin-movie-form');
+        this.adminPanel = document.getElementById('admin-panel');
         this.adminControls = document.getElementById('admin-controls'); 
         this.inputTitle = document.getElementById('new-movie-name');
         this.inputPrice = document.getElementById('new-movie-price');
@@ -68,11 +68,10 @@ export default class CinemaView {
 
     toggleAdminMode(isAdmin) {
         if (isAdmin) {
-            this.adminForm.classList.remove('hidden');
-            this.adminControls.classList.remove('hidden');
+            this.adminPanel.classList.remove('hidden');
+            this.adminPanel.classList.add('animate-fade-in-down'); 
         } else {
-            this.adminForm.classList.add('hidden');
-            this.adminControls.classList.add('hidden');
+            this.adminPanel.classList.add('hidden');
         }
     }
 
