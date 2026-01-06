@@ -65,7 +65,7 @@ export default class CinemaController {
     handleAddMovie() {
         const data = this.view.getNewMovieData();
         if (data) {
-            this.model.addMovie(data.title, data.price, data.totalSeats);
+            this.model.addMovie(data.title, data.price, data.seats);
             this.renderAll();
             alert(`Film ${data.title} byl přidán.`);
         } else {
