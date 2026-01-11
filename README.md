@@ -153,6 +153,4 @@ npx serve
 ```
 
 ### Použití:
-
 Aplikace se otevře na adrese http://127.0.0.1:5500 (nebo podobné). Data se ukládají do vašeho prohlížeče.
----
