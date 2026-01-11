@@ -75,7 +75,7 @@ cine-seat/
 │   ├── CinemaView.js    # Manipulace s DOM a UI
 │   └── CinemaController.js # Propojení Modelu a View
 └── README.md            # Dokumentace
-
+```
 ---
 
 ## 🏗 Architektura (MVC)
