@@ -109,3 +109,26 @@ Controller funguje jako prostředník, který řídí tok aplikace.
     * `init()`: Spouští aplikaci a načítá data.
     * `renderAll()`: Centrální metoda, která získá čerstvá data z Modelu a přikáže View překreslit celou obrazovku.
     * `handleAddMovie()`: Zpracuje formulář pro nový film a předá data Modelu.
+
+## 💾 Datový Model
+
+Data jsou uchovávána v `localStorage` pod klíčem `cinemaMovies`. Jde o pole objektů ve formátu JSON.
+
+**Struktura uložených dat:**
+```json
+[
+  {
+    "id": 17049823115,       // Unikátní ID (Timestamp)
+    "title": "Duna: Část 2", // Název filmu
+    "price": 250,            // Cena za lístek
+    "totalSeats": 48,        // Kapacita sálu
+    "occupied": [2, 5, 6]    // Pole indexů obsazených sedadel
+  },
+  {
+    "id": 17049824220,
+    "title": "Joker",
+    "price": 200,
+    "totalSeats": 32,
+    "occupied": []
+  }
+]
