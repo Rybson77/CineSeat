@@ -132,3 +132,27 @@ Data jsou uchovávána v `localStorage` pod klíčem `cinemaMovies`. Jde o pole 
     "occupied": []
   }
 ]
+```
+---
+## Stažení projektu:
+Stáhněte zdrojové kódy nebo naklonujte repozitář:
+```bash
+git clone [https://github.com/vase-jmeno/cineseat.git](https://github.com/vase-jmeno/cineseat.git)
+```
+### Spuštění:
+Otevřete složku projektu v editoru (např. VS Code).
+
+* **Možnost A (Doporučeno):** Použijte rozšíření **Live Server** ve VS Code. Klikněte pravým tlačítkem na `index.html` a zvolte *"Open with Live Server"*.
+* **Možnost B (Python):** V terminálu spusťte:
+```bash
+python -m http.server
+```
+* **Možnost C (Node.js):** Pokud máte **Node.js**, můžete použít:
+```bash
+npx serve
+```
+
+### Použití:
+
+Aplikace se otevře na adrese http://127.0.0.1:5500 (nebo podobné). Data se ukládají do vašeho prohlížeče.
+---
