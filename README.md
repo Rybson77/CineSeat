@@ -75,3 +75,37 @@ cine-seat/
 │   ├── CinemaView.js    # Manipulace s DOM a UI
 │   └── CinemaController.js # Propojení Modelu a View
 └── README.md            # Dokumentace
+
+---
+
+## 🏗 Architektura (MVC)
+Aplikace striktně dodržuje návrhový vzor **Model-View-Controller**, což zajišťuje oddělení datové logiky od uživatelského rozhraní a usnadňuje budoucí údržbu kódu.
+
+### 1. Model (`CinemaModel.js`)
+Model představuje "mozek" aplikace a datovou vrstvu.
+
+* **Zodpovědnost:** Spravuje veškerá data (seznam filmů, stav sedadel) a business logiku.
+* **Persistence:** Zajišťuje ukládání (`saveToStorage`) a načítání (`loadFromStorage`) dat z `localStorage`.
+* **Klíčové metody:**
+    * `addMovie(title, price, seats)`: Vytvoří nový objekt filmu.
+    * `bookTickets()`: Převede sedadla z "dočasně vybraných" na "trvale obsazená".
+    * `getSeatStatus()`: Vrací data potřebná pro vykreslení (obsazenost, kapacita).
+
+### 2. View (`CinemaView.js`)
+View se stará výhradně o vizuální stránku (UI) a manipulaci s DOMem.
+
+* **Zodpovědnost:** Vykresluje HTML na základě dat a odchytává vstupy uživatele.
+* **Interaktivita:** Zobrazuje/skrývá Admin Panel podle role (`toggleAdminMode`).
+* **Klíčové metody:**
+    * `renderSeats(total, occupied, selected)`: Dynamicky generuje mřížku sedadel.
+    * `renderMovieOptions(movies)`: Plní dropdown menu seznamem filmů.
+    * `bindSelectSeat(handler)`: Registruje posluchače událostí (kliknutí).
+
+### 3. Controller (`CinemaController.js`)
+Controller funguje jako prostředník, který řídí tok aplikace.
+
+* **Zodpovědnost:** Propojuje Model a View. Reaguje na události z View a volá metody Modelu.
+* **Klíčové metody:**
+    * `init()`: Spouští aplikaci a načítá data.
+    * `renderAll()`: Centrální metoda, která získá čerstvá data z Modelu a přikáže View překreslit celou obrazovku.
+    * `handleAddMovie()`: Zpracuje formulář pro nový film a předá data Modelu.
